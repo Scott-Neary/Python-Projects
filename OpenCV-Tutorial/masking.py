@@ -11,6 +11,7 @@ mask = cv.rectangle(blank, (img.shape[1]//2,img.shape[0]//2), (img.shape[1]//2 +
 mask = cv.imshow('Mask', mask)
 
 # ! Problem - Image is not getting masked (1:56:00 of tutorial video)
+# ? Note - Image gets masked in histogram.py so something is not being run properly in this example
 masked = cv.bitwise_and(img,img,mask=mask)
 cv.imshow('Masked Image', masked)
 
