@@ -8,7 +8,7 @@ people = ['Ben Afflek', 'Elton John', 'Jerry Seinfield', 'Madonna', 'Mindy Kalin
 # labels = np.load('labels.npy')
 
 face_recognizer = cv.face.LBPHFaceRecognizer_create()
-face_recognizer.read('face_trained.yml')
+face_recognizer.read('OpenCV-Tutorial/face_trained.yml')
 
 img = cv.imread(r'OpenCV-Tutorial/Faces/val/elton_john/1.jpg')
 
