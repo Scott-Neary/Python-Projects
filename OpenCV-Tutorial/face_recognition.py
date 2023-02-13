@@ -7,6 +7,8 @@ people = ['Ben Afflek', 'Elton John', 'Jerry Seinfield', 'Madonna', 'Mindy Kalin
 # features = np.load('features.npy')
 # labels = np.load('labels.npy')
 
+# ! If error "module 'cv2.cv2' has no attribute 'face'" is encountered then 
+# ! go to cmd > pip install opencv-contrib-python==4.4.0.46
 face_recognizer = cv.face.LBPHFaceRecognizer_create()
 face_recognizer.read('OpenCV-Tutorial/face_trained.yml')
 
