@@ -8,7 +8,7 @@ blank = np.zeros(img.shape[:2], dtype='uint8')
 cv.imshow('Blank Image', blank)
 
 mask = cv.rectangle(blank, (img.shape[1]//2,img.shape[0]//2), (img.shape[1]//2 + 100,img.shape[0]//2 + 100), 255, -1)
-# mask = cv.imshow('Mask', mask)
+cv.imshow('Mask', mask)
 
 # ? Note - Image gets masked in histogram.py so something may not run properly in this example
 masked = cv.bitwise_and(img,img,mask=mask)
