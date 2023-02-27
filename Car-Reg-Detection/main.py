@@ -11,7 +11,7 @@ import easyocr
 # ! edged = cv.Canny(bfilter, 50, 160)
 
 # Read the image
-img = cv.imread('Car-Reg-Detection/Images/car2.jpg')
+img = cv.imread('Car-Reg-Detection/Images/car7.jpg')
 
 # Grayscale the image 
 gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)

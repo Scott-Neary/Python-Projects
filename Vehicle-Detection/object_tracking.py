@@ -8,7 +8,7 @@ import math
 od = ObjectDetection()
 
 # Load the video footage
-cap = cv.VideoCapture("Vehicle-Detection/Videos/cars.mp4")
+cap = cv.VideoCapture("Vehicle-Detection/Videos/cars2.mp4")
 
 # Initialise frame count
 count = 0
