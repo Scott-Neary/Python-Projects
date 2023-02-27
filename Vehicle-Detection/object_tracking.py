@@ -12,6 +12,7 @@ cap = cv.VideoCapture("Vehicle-Detection/Videos/cars.mp4")
 
 # Initialise frame count
 count = 0
+
 center_points_prv_frame = []
 
 tracking_objects = {}
@@ -34,9 +35,12 @@ while True:
     (class_ids, scores, boxes) = od.detect(frame)
     for box in boxes:
         (x, y, w, h) = box
+        
+        # Calculate the centre points
         cx = int((x + x + w) / 2)
         cy = int((y + y + h) / 2)
         center_points_cur_frame.append((cx, cy))
+        
         print("FRAME No ", count, " ", x, y, w, h)
         
         # Draw full circle at the centre point of each object
