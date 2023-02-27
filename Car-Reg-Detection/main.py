@@ -6,6 +6,9 @@ import imutils
 import easyocr
 
 # ! NOTE - This program will only be able to detect the vehicle reg plates of car2.jpg and car3.jpg
+# ! The following code will enable car1.jpg to be scanned more accurately
+# ! bfilter = cv.bilateralFilter(gray, 14, 21, 21)
+# ! edged = cv.Canny(bfilter, 50, 160)
 
 # Read the image
 img = cv.imread('Car-Reg-Detection/Images/car2.jpg')
