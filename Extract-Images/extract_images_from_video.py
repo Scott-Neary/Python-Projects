@@ -2,7 +2,7 @@ import cv2 as cv
 import os
 
 # Load the video
-vid = cv.VideoCapture('Extract-Images/Videos/cars.mp4')
+vid = cv.VideoCapture('Extract-Images/Videos/cars3.mp4')
 
 # Initialise the frame count
 current_frame = 0
