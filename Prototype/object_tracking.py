@@ -3,6 +3,7 @@ import numpy as np
 # Import object_detection program developed by Pysource
 from object_detection import ObjectDetection
 import math
+from detect_reg_V2 import RegDetectionClassV2
 
 class VehicleTracking:
     def __init__(self, vid):
@@ -76,7 +77,14 @@ class VehicleTracking:
                             if pt in center_points_cur_frame:
                                 center_points_cur_frame.remove(pt)
                             continue
-                        
+                     
+                    # ! Lines 82 - 86 are temporary to check if reg plates are being picked - will need to add a db/spreadsheet that checks existing reg plates
+                    if object_exists:
+                        # Instanstiate registration detection object
+                        reg_detect = RegDetectionClassV2(frame)
+                        result = reg_detect.detect_reg_plates()
+                        print(result)
+  
                     # Remove IDs lost
                     if not object_exists:
                         tracking_objects.pop(object_id)
@@ -104,7 +112,7 @@ class VehicleTracking:
             # Make a copy of the points
             center_points_prv_frame = center_points_cur_frame.copy()
             
-            key = cv.waitKey(0)
+            key = cv.waitKey(1)
             if key == 27:
                 break
             
