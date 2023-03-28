@@ -1,7 +1,7 @@
 # import required libraries
 import cv2 as cv
 import numpy as np
-
+import easyocr
 class RegDetectionClassV2:
     def __init__(self, img):
         self.img = img
@@ -42,5 +42,12 @@ class RegDetectionClassV2:
             # cv.imwrite('Numberplate.jpg', gray_plates)
             cv.imshow('Number Plate', gray_plates)
             cv.imshow('Number Plate Image', self.img)
+            
+            # EasyOCR Reader with English language passed in
+            reader = easyocr.Reader(['en'])
+            # Use readtext method to read the registration plate from the image
+            result = reader.readtext(gray_plates)
+            print(result)
+            
             cv.waitKey(0)   
         cv.destroyAllWindows()        

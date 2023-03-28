@@ -6,7 +6,7 @@ from detect_reg_V2 import RegDetectionClassV2
 from db_class import Database
 
 # Read the video
-vid = cv.VideoCapture("Vehicle-Detection/Videos/cars2.mp4")
+vid = cv.VideoCapture("Vehicle-Detection/Videos/cars3.mp4")
 
 # Instanstiate registration detection object
 veh_tract = VehicleTracking(vid)
