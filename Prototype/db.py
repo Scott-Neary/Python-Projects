@@ -1,22 +1,5 @@
 import sqlite3
-
-class Database:
-    def __init__(self, name):
-      self.name = name
-    
-    def add_car():
-        insert_car_query = ("INSERT INTO cars VALUES (:reg, :veh_status, :path)", {'reg': reg_no, 'veh_status': status, 'path': img_path})
-        
-    def delete_car():
-        tmp = ""
-
-    def does_car_exist():
-        car_exist_query = ("SELECT * FROM cars WHERE registration_no=:r", {"r": reg_no})
-        
-        if car_exist_query == "":
-            return False
-        return True
-        
+     
 connection = sqlite3.connect("Prototype/cars.db")
 # Handles communication with database
 cursor = connection.cursor()
