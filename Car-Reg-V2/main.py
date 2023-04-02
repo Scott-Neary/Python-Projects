@@ -6,7 +6,7 @@ import numpy as np
 img = cv.imread("Car-Reg-V2/Images/car01.jpg")
 
 # convert input image to grayscale
-gray = cv.cvtColor(img, cv.COLOR_BGR2RGB)
+gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 
 # read haarcascade for number plate detection
 cascade = cv.CascadeClassifier('Car-Reg-V2/Haarcascades/haarcascade_russian_plate_number.xml')
