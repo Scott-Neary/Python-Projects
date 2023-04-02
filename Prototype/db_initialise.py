@@ -8,17 +8,17 @@ cursor = connection.cursor()
 # Create table and fields
 cursor.execute("""CREATE TABLE cars (
                 registration_no text, 
-                status text, 
-                image_path text
+                accuracy_score text
                 )""")
 
+# Sample data
 release_list = [
-    ("SD14NMA", "Employee", "Prototype/Images/frame240.jpg"),
-    ("NK16VEX", "Blacklist", "Prototype/Images/car0.jpg")
+    ("SD14NMA", "0.58"),
+    ("NK16VEX", "0.72")
 ]
 
 # Insert data into table
-cursor.executemany("insert into cars values (?,?,?)", release_list)
+cursor.executemany("insert into cars values (?,?)", release_list)
 
 # Print data
 for row in cursor.execute("select * from cars"):

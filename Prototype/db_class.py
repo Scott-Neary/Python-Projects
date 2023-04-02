@@ -8,8 +8,8 @@ class Database:
       # Handles communication with database
       self.cursor = self.connection.cursor()
       
-    def add_car(self, reg_no, status, img_path):
-        self.cursor.execute("INSERT INTO cars VALUES (?, ?, ?)", (reg_no, status, img_path))
+    def add_car(self, reg_no, score):
+        self.cursor.execute("INSERT INTO cars VALUES (?, ?)", (reg_no, score))
       
         self.connection.commit()
         
