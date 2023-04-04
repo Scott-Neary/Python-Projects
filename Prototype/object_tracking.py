@@ -74,7 +74,6 @@ class VehicleTracking:
                 
                 print("Frame Number - ", frame_count)
                 
-                # ! Lines 82 - 86 are temporary to check if reg plates are being picked - will need to add a db/spreadsheet that checks existing reg plates
                 if object_exists:
                     reg_found = reg_detect.detect_reg_plates(frame)
                     print(reg_found)
