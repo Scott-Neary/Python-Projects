@@ -8,7 +8,7 @@ cursor = connection.cursor()
 # Create table and fields
 cursor.execute("""CREATE TABLE cars (
                 registration_no text, 
-                accuracy_score text
+                accuracy_score decimal(10,2)
                 )""")
 
 # Sample data
@@ -19,6 +19,8 @@ release_list = [
 
 # Insert data into table
 cursor.executemany("insert into cars values (?,?)", release_list)
+
+connection.commit()
 
 # Print data
 for row in cursor.execute("select * from cars"):
