@@ -4,7 +4,7 @@ import numpy as np
 import easyocr
 from db_class import Database
 class RegDetectionClassV2:
-    def __init__(self, haarcascade='Car-Reg-V2/Haarcascades/haarcascade_russian_plate_number.xml'):
+    def __init__(self, haarcascade='Prototype/Haarcascades/haarcascade_russian_plate_number.xml'):
         self.cascade = haarcascade
         
     def detect_reg_plates(self, frame):
