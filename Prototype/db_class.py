@@ -12,19 +12,19 @@ class Database:
         self.cursor.execute("INSERT INTO cars VALUES (?, ?)", (reg_no, score))
       
         self.connection.commit()
-        
-        # Print data
-        for row in self.cursor.execute("select * from cars"):
-            print(row)
     
-        self.connection.close()
         return
     
     def does_car_exist(self, reg_no):
-        car_exist_query = ("SELECT * FROM cars WHERE registration_no=:reg", {"reg": reg_no})
+        self.cursor.execute("SELECT * FROM cars WHERE registration_no=:reg", {"reg": reg_no})
+        car_search = self.cursor.fetchone()
         
-        self.connection.close()
-        
-        if car_exist_query == "":
+        print("Car Search", car_search)
+        self.connection.commit()
+                
+        if car_search == None:
             return False
         return True
+    
+    def close_connection(self):
+        self.connection.close()

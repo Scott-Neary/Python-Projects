@@ -9,9 +9,6 @@ class RegDetectionClassV2:
         
     def detect_reg_plates(self, frame):
         
-        # Instantiate database
-        db = Database()
-        
         grayscale_image = self.image_filters(frame)
         
         # read haarcascade for number plate detection
@@ -25,14 +22,11 @@ class RegDetectionClassV2:
             print('No registration plates found!')
             return False
         
-        reg_number, accurarcy_score = self.detect_reg_no(frame, grayscale_image, plates)
+        # Instantiate database
+        self.db = Database()
         
-        # Compare registration number in database
-        car_exists = db.does_car_exist(reg_number)
-        # Add registration number to database
-        if car_exists == False:
-            db.add_car(reg_number, accurarcy_score)
-            
+        self.detect_reg_no(frame, grayscale_image, plates)
+        
         return True
     
     def image_filters(self, frame):
@@ -65,6 +59,14 @@ class RegDetectionClassV2:
             
             print("Registration Number - ", reg_value)
             print("Accuracy Score - ", reg_accuracy)
+            
+            # Compare registration number in database
+            car_exists = self.db.does_car_exist(reg_value)
+            # Add registration number to database
+            if car_exists == False:
+                self.db.add_car(reg_value, reg_accuracy)
+            else:
+                print("Car with registration ", reg_value, " already exists!")
             
             key = cv.waitKey(0)
             if key == 27:
